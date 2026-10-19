@@ -23,4 +23,4 @@ The included `netlify.toml` sets the publish directory. Connect a custom domain 
 
 ## Content and documents
 
-The `assets/documents/` PDFs are linked from the website for download. Confirm that each document is approved for public viewing before publishing the repository or deployment.
+The `assets/documents/` PDFs are linked from the website for download. They are included in this public repository and will be publicly accessible. Confirm that each document is approved for public viewing before publishing the repository or deployment.
