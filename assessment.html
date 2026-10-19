@@ -14,12 +14,14 @@
     <nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="index.html#about">About</a><a href="index.html#services">Services</a><a href="index.html#portfolio">Portfolio</a><a href="index.html#sectors">Sectors</a><a href="index.html#capability">Capability</a><a href="#accreditations">Accreditations</a><a href="index.html#contact">Contact</a></nav>
   </div></header>
   <main id="main">
-    <section class="assessment-hero"><div class="section-kicker">SEBENZANI SECURITY · BUSINESS ENQUIRY</div><h1>Request a security <em>assessment.</em></h1><p>Share a few details about your organisation and requirements. We’ll prepare a clear request summary for you to review.</p></section>
+    <section class="assessment-hero"><div class="section-kicker">SEBENZANI SECURITY · BUSINESS ENQUIRY</div><h1>Request a security <em>assessment.</em></h1><p>Share a few details about your organisation and requirements. Your request will be sent to the Sebenzani team.</p></section>
     <section class="accreditation-panel" id="accreditations"><div><span class="section-kicker">CREDENTIALS &amp; GOVERNANCE</span><h2>Documents &amp; credentials.</h2><p>View or download the three company documents supplied by Sebenzani Security.</p></div><div class="accreditation-slots"><a href="assets/documents/sebenzani-company-profile.pdf" download="Sebenzani-Company-Profile.pdf"><span>01</span><strong>Company profile</strong><small>Download PDF <b aria-hidden="true">↗</b></small></a><a href="assets/documents/psira-registration-certificate.pdf" download="PSIRA-Registration-Certificate.pdf"><span>02</span><strong>PSIRA registration certificate</strong><small>Download PDF <b aria-hidden="true">↗</b></small></a><a href="assets/documents/sebenzani-cipc-document.pdf" download="Sebenzani-CIPC-Document.pdf"><span>03</span><strong>CIPC company document</strong><small>Download PDF <b aria-hidden="true">↗</b></small></a></div></section>
     <section class="assessment-content">
       <div class="assessment-intro"><span class="intro-index">01 / YOUR REQUIREMENT</span><h2>Tell us how we can help.</h2><p>Use this form for an assessment request, tailored quote or service enquiry. Keep sensitive site information for a secure follow-up conversation.</p><div class="direct-contact"><span>Prefer to speak directly?</span><a href="tel:+27100300308">010 030 0308 <b>↗</b></a><a href="mailto:info@sebenzanisecurity.co.za">info@sebenzanisecurity.co.za <b>↗</b></a></div></div>
       <div class="form-shell">
-        <form id="assessment-form">
+        <form id="assessment-form" name="assessment-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="assessment-request">
+          <p hidden><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
           <div class="form-grid">
             <label>Organisation name<input name="organisation" autocomplete="organization" maxlength="120" placeholder="Your organisation" required></label>
             <label>Name and surname<input name="name" autocomplete="name" maxlength="120" placeholder="Your full name" required></label>
@@ -28,19 +30,20 @@
             <label class="form-wide">Service of interest<select name="service" id="service-choice" required><option value="">Select a service</option><option>Armed response</option><option>CCTV &amp; monitoring</option><option>Security operations centre</option><option>Risk assessment</option><option>Guarding &amp; patrols</option><option>Specialist protection</option><option>General enquiry / not sure yet</option></select></label>
             <label class="form-wide">How can we help?<textarea name="requirements" rows="5" maxlength="1800" placeholder="Briefly describe the service or assessment you are looking for." required></textarea><small>Please don’t include access codes, security vulnerabilities, or other sensitive facility details.</small></label>
           </div>
-          <div class="form-consent"><span class="consent-mark">i</span><p>This draft site does not store or submit your information. After you review the summary, you can open an email draft addressed to Sebenzani and choose whether to send it.</p></div>
-          <button class="button button-gold form-submit" type="submit">Review request summary <span aria-hidden="true">↗</span></button>
+          <div class="form-consent"><span class="consent-mark">i</span><p>Your request will be sent to the Sebenzani team and stored in the site’s Netlify submissions. Please don’t include access codes, security vulnerabilities, or other sensitive facility details.</p></div>
+          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+          <button class="button button-gold form-submit" type="submit">Send request <span aria-hidden="true">↗</span></button>
         </form>
         <section id="request-summary" class="request-summary" aria-live="polite" hidden>
-          <div class="summary-head"><div><span class="section-kicker">REQUEST SUMMARY</span><h2>Review before sending.</h2></div><span class="summary-status">LOCAL PREVIEW</span></div>
-          <p class="summary-intro">Check these details. You can print or save this page as a PDF, or open a pre-filled email to Sebenzani Security.</p>
+          <div class="summary-head"><div><span class="section-kicker">REQUEST RECEIVED</span><h2>Thank you. We have your request.</h2></div><span class="summary-status">SUBMITTED</span></div>
+          <p class="summary-intro">Your request has been sent to the Sebenzani team. Keep this summary for your records.</p>
           <dl class="summary-fields">
             <div><dt>Organisation</dt><dd data-summary="organisation"></dd></div><div><dt>Contact name</dt><dd data-summary="name"></dd></div>
             <div><dt>Telephone</dt><dd data-summary="telephone"></dd></div><div><dt>Email</dt><dd data-summary="email"></dd></div>
             <div><dt>Service</dt><dd data-summary="service"></dd></div><div class="summary-wide"><dt>Requirements</dt><dd data-summary="requirements"></dd></div>
           </dl>
-          <div class="summary-actions"><button class="button button-gold" type="button" id="email-request">Open email draft <span aria-hidden="true">↗</span></button><button class="button button-outline" type="button" id="print-request">Print / save as PDF <span aria-hidden="true">↓</span></button><button class="edit-link" type="button" id="edit-request">Edit details</button></div>
-          <p class="summary-footnote">Your mail app will open with the request details addressed to info@sebenzanisecurity.co.za. Review the message and press Send yourself. Attach the saved PDF manually if you want to include it.</p>
+          <div class="summary-actions"><button class="button button-outline" type="button" id="print-request">Print / save as PDF <span aria-hidden="true">↓</span></button></div>
+          <p class="summary-footnote">The team can reply to the email address or telephone number you provided. For urgent enquiries, call <a href="tel:+27100300308">010 030 0308</a>.</p>
           <div class="print-brand"><img src="assets/logo-header.png" alt="Sebenzani Security"><span>Security assessment request</span></div>
         </section>
       </div>
